@@ -1,3 +1,4 @@
+# C3
 First let's see the files we've got at our hands...
 ```py
 achu@air ~ % cat /Users/achu/Downloads/ciphertext <(echo "\n\n") /Users/achu/Downloads/convert.py
@@ -61,3 +62,13 @@ for i in range(len(chars)):
 We get a new python code as our decrypted message
 
 !TODO: Finish this...
+
+
+# Custom encryption
+TBD
+
+
+# miniRSA
+TBD
+
+

@@ -11,6 +11,7 @@ Let's try the most obvious solution and enter `/flag.txt`
 
 Let's try giving a relative path which goes all the way back like `../../../../../../../../../../../flag.txt`
 ![The flag](../assets/forbidden_paths/3.png)
+We have our flag in the website body and it's `picoCTF{7h3_p47h_70_5ucc355_e5fe3d4d}`.
 (That quite surprisingly worked, and we've got the flag... That was pleasantly easy!)
 
 
@@ -47,9 +48,11 @@ achu@air ~ % i=0; while true; do curl -sS -L -b "name=$i" http://mercury.picoctf
             <p style="text-align:center; font-size:30px;"><b>I love macaroon cookies!</b></p>
             <p style="text-align:center; font-size:30px;"><b>I love fortune cookies!</b></p>
             <p style="text-align:center; font-size:30px;"><b>I love crinkle cookies!</b></p>
-^C                                                                                                                    achu@air ~ % 
+^C
+achu@air ~ % 
 ```
 `-sS` to suppress progress bar (`s`) but to propagate errors if they occur (`S`).
 `-L` to follow HTTP redirects.
 `-b` for setting cookie.
 We pipe this to `grep` which searches for `font-size:30px` (because that's the only `p` container for that specific text size so we can narrow down to just one container with rudimentary tricks instead of proper HTML parsing).
+We get the flag `picoCTF{3v3ry1_l0v3s_c00k135_88acab36}` on `name=18` iteration.

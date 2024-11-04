@@ -60,8 +60,57 @@ for i in range(len(chars)):
         b += 1 / 1
 ```
 We get a new python code as our decrypted message
+I tried giving original cipher text as input to this new program but that was to no avail.
+Let's convert this to python3 before any more shenanigans and try giving the python file itself as the input (because of the comment `#selfinput`)
+```py
+chars = ""
+with open(__file__) as f:
+    inp = f.read() # Wasn't too fond of overwriting the builtin input function :p
+for line in inp:
+    chars += line
+b = 1 / 1
 
-!TODO: Finish this...
+for i in range(len(chars)):
+    if i == b * b * b:
+        print(chars[i]) #prints <- just use the function print, everything else is compatible
+        b += 1 / 1
+```
+If we apply a little bit of brain juice we can see that wasn't the brightest idea because now we reading off of our own edit, instead just give the ORIGINAL file as is to the edited python program
+```py
+chars = """\
+#asciiorder
+#fortychars
+#selfinput
+#pythontwo
+
+chars = ""
+from fileinput import input
+for line in input():
+    chars += line
+b = 1 / 1
+
+for i in range(len(chars)):
+    if i == b * b * b:
+        print chars[i] #prints
+        b += 1 / 1
+"""
+
+b = 1 / 1
+for i in range(len(chars)):
+    if i == b * b * b:
+        print(chars[i]) #prints <- just use the function print, everything else is compatible
+        b += 1 / 1
+```
+This produces the output
+```
+a
+d
+l
+i
+b
+s
+```
+Wrap that around a flag boilerplate and we get `picoCTF{adlibs}`, and that's our flag!
 
 
 # Custom encryption

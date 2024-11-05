@@ -24,3 +24,9 @@
 - [**Buffer overflow 0**](./picoctf/Binary_Exp.md#buffer-overflow-0) (WIP 🚧)
 - [**Format string 0**](./picoctf/Binary_Exp.md#format-string-0) (WIP 🚧)
 - [**Flag leak**](./picoctf/Binary_Exp.md#flag-leak) (WIP 🚧)
+
+<div align="center">
+
+[&#x2B05;&#xFE0F; TP 1](https://github.com/Achxy/cryptonite_taskphase_achyuth) | [(&#x2B06;&#xFE0F; TP 2)](https://github.com/Achxy/cryptonite_taskphase_2_achyuth) | [&#x1F6AB; TP 3](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
+</div>

@@ -4,13 +4,13 @@ TBD
 
 # Forbidden Paths
 We'll we've got a website with a field to enter files.
-![Website overview](../assets/forbidden_paths/1.png)
+![Website overview](../assets/contents/forbidden_paths/1.png)
 
 Let's try the most obvious solution and enter `/flag.txt`
-![Not authorized](../assets/forbidden_paths/2.png)
+![Not authorized](../assets/contents/forbidden_paths/2.png)
 
 Let's try giving a relative path which goes all the way back like `../../../../../../../../../../../flag.txt`
-![The flag](../assets/forbidden_paths/3.png)
+![The flag](../assets/contents/forbidden_paths/3.png)
 We have our flag in the website body and it's `picoCTF{7h3_p47h_70_5ucc355_e5fe3d4d}`.
 (That quite surprisingly worked, and we've got the flag... That was pleasantly easy!)
 
@@ -18,10 +18,10 @@ We have our flag in the website body and it's `picoCTF{7h3_p47h_70_5ucc355_e5fe3
 # cookies
 The challenge name strongly hints at something related to cookies.
 Apparently there's only one cookie set with the key `name` with value `-1`
-![Cookies initially](../assets/cookies/1.png)
+![Cookies initially](../assets/contents/cookies/1.png)
 
 We, change the value of the `name` cookie to some other value (say `0`), and we observe a change when refreshed (the form has the state of one which has already been submitted)
-![Cookies after change](../assets/cookies/2.png)
+![Cookies after change](../assets/contents/cookies/2.png)
 
 We keep trying values from `0` to however many until we get any new interesting value, we write a small bash script which uses `curl` to automate this process for us.
 ```bash

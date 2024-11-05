@@ -51,17 +51,17 @@ achu@air ~ % xxd /Users/achu/Downloads/tunn3l_v1s10n
 000000a0: 9774 c194 73c0 9372 c08f 6fbd 8e6e ba8d  .t..s..r..o..n..
 ```
 Search wikipedia for matching magic number/binary signature
-![Wikipedia binary signature info](../assets/tunn3l_v1s10n/1.png)
+![Wikipedia binary signature info](../assets/contents/tunn3l_v1s10n/1.png)
 
 With a bit of digging it can be found that some static values of BMP are actually switched out in the hexdump
-![Wikipedia binary structure](../assets/tunn3l_v1s10n/2.png)
-![Wikipedia binary structure example](../assets/tunn3l_v1s10n/3.png)
+![Wikipedia binary structure](../assets/contents/tunn3l_v1s10n/2.png)
+![Wikipedia binary structure example](../assets/contents/tunn3l_v1s10n/3.png)
 
 Correcting the values 
-![Target values](../assets/tunn3l_v1s10n/4.png)
+![Target values](../assets/contents/tunn3l_v1s10n/4.png)
 
 And... we can now open the file.
-![Target values](../assets/tunn3l_v1s10n/5.png)
+![Target values](../assets/contents/tunn3l_v1s10n/5.png)
 However there seems to be a sizing issue
 
 Find the resolution
@@ -70,16 +70,16 @@ achu@air ~ % file /Users/achu/Downloads/tunn3l_v1s10n.bmp
 /Users/achu/Downloads/tunn3l_v1s10n.bmp: PC bitmap, Windows 3.x format, 1134 x 306 x 24, image size 2893400, resolution 5669 x 5669 px/m, cbSize 2893454, bits offset 54
 achu@air ~ % 
 ```
-![Height and width values](../assets/tunn3l_v1s10n/6.png)
+![Height and width values](../assets/contents/tunn3l_v1s10n/6.png)
 Height and Width comes after the value we assigned `28` to.
 
 Bitmap template tool in Hexfiend was a great aid
-![Found a cool feature 1](../assets/tunn3l_v1s10n/7.png)
-![Found a cool feature 2](../assets/tunn3l_v1s10n/8.png)
+![Found a cool feature 1](../assets/contents/tunn3l_v1s10n/7.png)
+![Found a cool feature 2](../assets/contents/tunn3l_v1s10n/8.png)
 
 We edit those to a higher value (specfically set height to `900`, ie, `0x384`)
 So we edit the value from `32 01` to `84 03`, and we finally get the flag!!!
-![Found a cool feature 2](../assets/tunn3l_v1s10n/9.png)
+![Found a cool feature 2](../assets/contents/tunn3l_v1s10n/9.png)
 
 The flag is `picoCTF{qu1t3_a_v13w_2020}`.
 

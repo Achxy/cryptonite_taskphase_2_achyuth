@@ -23,7 +23,7 @@ There's only one `eax`, and we'll convert `0x86342` to decimal base to get `5496
 Let's see what the assembly file does
 
 ```s
-achu@air ~ % cat /Users/achu/Downloads/chall_1\ \(1\).S 
+achu@air ~ % cat /Users/achu/Downloads/chall_1.S 
 	.arch armv8-a
 	.file	"chall_1.c"
 	.text

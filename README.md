@@ -11,7 +11,7 @@
 - [**m00nwalk**](./picoctf/Forensics.md#m00nwalk) (WIP 🚧)
 
 ## Web Exploitation
-- [**SOAP**](./picoctf/Web_Exp.md#soap) (WIP 🚧)
+- [**SOAP**](./picoctf/Web_Exp.md#soap)
 - [**Forbidden Paths**](./picoctf/Web_Exp.md#forbidden-paths)
 - [**cookies**](./picoctf/Web_Exp.md#cookies)
 

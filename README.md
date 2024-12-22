@@ -21,7 +21,7 @@
 - [**miniRSA**](./picoctf/Cryptography.md#minirsa)
 
 ## Binary Exploitation
-- [**Buffer overflow 0**](./picoctf/Binary_Exp.md#buffer-overflow-0) (WIP 🚧)
+- [**Buffer overflow 0**](./picoctf/Binary_Exp.md#buffer-overflow-0)
 - [**Format string 0**](./picoctf/Binary_Exp.md#format-string-0) (WIP 🚧)
 - [**Flag leak**](./picoctf/Binary_Exp.md#flag-leak) (WIP 🚧)
 

@@ -6,7 +6,7 @@
 - [**Vault door 3**](./picoctf/Reverse_Engineering.md#vault-door-3)
 
 ## Forensics
-- [**trivial flag transfer protocol**](./picoctf/Forensics.md#trivial-flag-transfer-protocol) (WIP 🚧)
+- [**trivial flag transfer protocol**](./picoctf/Forensics.md#trivial-flag-transfer-protocol)
 - [**tunn3l v1s10n**](./picoctf/Forensics.md#tunn3l-v1s10n)
 - [**m00nwalk**](./picoctf/Forensics.md#m00nwalk)
 

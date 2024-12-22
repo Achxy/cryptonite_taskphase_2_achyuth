@@ -1,5 +1,11 @@
 ![Cryptonite header](/assets/meta/header_cryptonite_phase_2.jpg)
 
+---
+## NiteCTF
+- [**BasicAVR**](./nitectf/BasicAVR.md) (hardware)
+- [**R Stands Alone**](./nitectf/R_Stands_Alone.md) (crypto)
+---
+
 ## Reverse Engineering
 - [**GDB baby step 1**](./picoctf/Reverse_Engineering.md#gdb-baby-step-1)
 - [**ARMssembly 1**](./picoctf/Reverse_Engineering.md#armssembly-1)

@@ -17,7 +17,7 @@
 
 ## Cryptography
 - [**C3**](./picoctf/Cryptography.md#c3)
-- [**Custom encryption**](./picoctf/Cryptography.md#custom-encryption) (WIP 🚧)
+- [**Custom encryption**](./picoctf/Cryptography.md#custom-encryption)
 - [**miniRSA**](./picoctf/Cryptography.md#minirsa)
 
 ## Binary Exploitation

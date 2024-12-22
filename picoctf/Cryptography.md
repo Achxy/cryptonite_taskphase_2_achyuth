@@ -114,8 +114,54 @@ Wrap that around a flag boilerplate and we get `picoCTF{adlibs}`, and that's our
 
 
 # Custom encryption
-TBD
+We receive algo implemented in Python which was used to encrypt and the encrypted file itself.
+We'll attempt to reverse this encryption by performing the steps backwards.
+```py
+p, g = 97, 31
+a, b = 97, 22
+cipher = [151146, 1158786, 1276344, 1360314, 1427490, 1377108, 1074816, 1074816, 386262, 705348, 0, 1393902, 352674, 83970, 1141992, 0, 369468, 1444284, 16794, 1041228, 403056, 453438, 100764, 100764, 285498, 100764, 436644, 856494, 537408, 822906, 436644, 117558, 201528, 285498]
+```
+We'll start off with that where `p`, `g` are constant values in the encryption algorithm and `a`, `b` and `cipher` are values from the encrypted file.
+This was the final encryption step:
+```py
+def encrypt(plaintext, key):
+    cipher = []
+    for char in plaintext:
+        cipher.append(((ord(char) * key*311)))
+    return cipher
+```
+To reverse that we need `key`, which can be obtained by:
+```py
+key = generator(generator(g, b, p), a, p)
+```
+Then we dicipher the text by:
+```py
+deciphered = "".join(chr(c // 311 // key) for c in cipher) # `encrypt` fn call's effect was reversed
+```
+We provide that as an argument to `dynamic_xor_encrypt` where the second argument is the starting character of the known chars of flag to produce the key, which yields `aedurtu` (it's reversed).
+If perform this operation again, ie, invoke `dynamic_xor_encrypt` with decipher text and obtained key, we'll be able to produce the flag.
+Decryption algo in it's entirety would be:
+```py
+def generator(g, x, p):
+    return pow(g, x) % p
 
+def dynamic_xor_encrypt(plaintext, text_key):
+    cipher_text = ""
+    key_length = len(text_key)
+    for i, char in enumerate(plaintext[::-1]):
+        key_char = text_key[i % key_length]
+        encrypted_char = chr(ord(char) ^ ord(key_char))
+        cipher_text += encrypted_char
+    return cipher_text
+
+p, g = 97, 31
+a, b = 97, 22
+cipher = [151146, 1158786, 1276344, 1360314, 1427490, 1377108, 1074816, 1074816, 386262, 705348, 0, 1393902, 352674, 83970, 1141992, 0, 369468, 1444284, 16794, 1041228, 403056, 453438, 100764, 100764, 285498, 100764, 436644, 856494, 537408, 822906, 436644, 117558, 201528, 285498]
+key = generator(generator(g, b, p), a, p)
+text_key = dynamic_xor_encrypt(d := "".join(chr(c // 311 // key) for c in cipher), i := "picoCTF{")[:len(i) - 1]
+print(dynamic_xor_encrypt(d, text_key))
+```
+Flag is `picoCTF{custom_d2cr0pt6d_e4530597}`
 
 # miniRSA
 Textbook RSA problem where the exp is small, also it's given that the word `pico` is contained within the flag

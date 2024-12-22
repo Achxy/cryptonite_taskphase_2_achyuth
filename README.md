@@ -1,6 +1,9 @@
 ![Cryptonite header](/assets/meta/header_cryptonite_phase_2.jpg)
+
 <div align="center">
-Repository contains prescribed [JTP 2 Tasks](https://github.com/Achxy/placeholder) and attempted [NiteCTF challenges](https://github.com/Achxy/cryptonite_taskphase_2_achyuth/tree/main/nitectf)
+
+Repository contains prescribed [JTP 2 Tasks](https://github.com/Achxy/cryptonite_taskphase_2_achyuth/blob/main/assets/meta/tasks_JTP_2.pdf) and attempted [NiteCTF challenges](https://github.com/Achxy/cryptonite_taskphase_2_achyuth/tree/main/nitectf)
+
 </div>
 
 ## NiteCTF

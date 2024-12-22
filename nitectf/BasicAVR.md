@@ -27,7 +27,7 @@ Unpatched ELF :< NO Run..
 ```
 This clearly states that we need to patch elf and configure ports in it to get the flag.
 
-![Patching video](../assets/contents/BasicAVR/1.mp4)
+https://github.com/user-attachments/assets/099b6b5d-7da5-45fb-9753-4c1c90b104ed
 
 After patching, attempting again
 ```bash

@@ -8,7 +8,7 @@
 ## Forensics
 - [**trivial flag transfer protocol**](./picoctf/Forensics.md#trivial-flag-transfer-protocol) (WIP 🚧)
 - [**tunn3l v1s10n**](./picoctf/Forensics.md#tunn3l-v1s10n)
-- [**m00nwalk**](./picoctf/Forensics.md#m00nwalk) (WIP 🚧)
+- [**m00nwalk**](./picoctf/Forensics.md#m00nwalk)
 
 ## Web Exploitation
 - [**SOAP**](./picoctf/Web_Exp.md#soap)

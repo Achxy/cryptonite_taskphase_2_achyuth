@@ -22,7 +22,7 @@
 
 ## Binary Exploitation
 - [**Buffer overflow 0**](./picoctf/Binary_Exp.md#buffer-overflow-0)
-- [**Format string 0**](./picoctf/Binary_Exp.md#format-string-0) (WIP 🚧)
+- [**Format string 0**](./picoctf/Binary_Exp.md#format-string-0)
 - [**Flag leak**](./picoctf/Binary_Exp.md#flag-leak) (WIP 🚧)
 
 <br>

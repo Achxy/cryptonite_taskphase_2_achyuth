@@ -359,5 +359,7 @@ Finished processing dependencies for sstv==0.1
 ~/SandBox$ 
 ```
 This produces the result that we want:
+
 ![Result](../assets/contents/m00nwalk/2.png)
+
 The flag is `picoCTF{beep_boop_im_in_space}`

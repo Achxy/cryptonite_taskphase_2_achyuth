@@ -37,6 +37,22 @@ Repository contains prescribed [JTP 2 Tasks](https://github.com/Achxy/cryptonite
 - [**two-sum**](./picoctf/Binary_Exp.md#two-sum-extra) (extra)
 - [**heap 1**](./picoctf/Binary_Exp.md#heap-1-extra) (extra)
 
+## PRs
+
+<div align="center">
+
+_A compilation of personal achievements in CTF-related endeavors throughout JTP-2._
+
+</div>
+
+### Placed #8 on an [International CTF Event](https://ctftime.org/event/2461/) organized by [Cryptonite](https://ctftime.org/team/62713)
+![NiteCTF Scoreboard](/assets/meta/nitectf_ranking.jpg)
+
+<br>
+
+### PicoCTF gym statistics
+![PicoCTF Gym progress](/assets/meta/picoctf_progress.png)
+
 <br>
 <div align="center">
 

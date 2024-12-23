@@ -34,7 +34,8 @@ Repository contains prescribed [JTP 2 Tasks](https://github.com/Achxy/cryptonite
 - [**Buffer overflow 0**](./picoctf/Binary_Exp.md#buffer-overflow-0)
 - [**Format string 0**](./picoctf/Binary_Exp.md#format-string-0)
 - [**Flag leak**](./picoctf/Binary_Exp.md#flag-leak)
-- [**two-sum**](./picoctf/Binary_Exp.md#two-sum-(extra)) (extra)
+- [**two-sum**](./picoctf/Binary_Exp.md#two-sum-extra) (extra)
+- [**heap 1**](./picoctf/Binary_Exp.md#heap-1-extra) (extra)
 
 <br>
 <div align="center">

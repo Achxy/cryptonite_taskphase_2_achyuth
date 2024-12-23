@@ -194,5 +194,5 @@ picoCTF{starting_to_get_the_hang_79ee3270}
 (base) achu@air cryptonite_taskphase_2_achyuth % 
 ```
 We get the difference between the stack memory location to be `32`, we overflow by just the right amount such that `pico` gets placed in the next memory cell.
-Then we print it out and get the flag.
+Then we print it out and get the flag.\
 Our flag is `picoCTF{starting_to_get_the_hang_79ee3270}`

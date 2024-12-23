@@ -54,3 +54,51 @@ CTF{L34k1ng_Fl4g_0ff_St4ck_11a2b52a}
 (base) achu@air ~ % 
 ```
 Reformat and our correct flag is `picoCTF{L34k1ng_Fl4g_0ff_St4ck_11a2b52a}`
+
+# two-sum (extra)
+Given the source code, we observe our point of interest which is the `addIntOvf` function.
+Because our flag is printed when that function returns `-1`
+```c
+if (addIntOvf(sum, num1, num2) == 0) {
+    printf("No overflow\n");
+    fflush(stdout);
+    exit(0);
+} else if (addIntOvf(sum, num1, num2) == -1) {
+    printf("You have an integer overflow\n");
+    fflush(stdout);
+}
+```
+Let's take a look at the definition of `addIntOvf`
+```c
+static int addIntOvf(int result, int a, int b) {
+    result = a + b;
+    if(a > 0 && b > 0 && result < 0)
+        return -1;
+    if(a < 0 && b < 0 && result > 0)
+        return -1;
+    return 0;
+}
+```
+We need `a` and `b` to be of same sign and non-zero while result is the opposite sign of whatever `a` and `b` is for this function to return `-1` (this is not mathematically possible).
+However we can cause an integer overflow with the addition `a + b`, causing a complement wrapping making `result` negative.
+Proof of concept:
+```c
+#include <stdio.h>
+
+int main(void) {
+    int result = (1 << 31);
+    printf("result = %d\n", result); // result = -2147483648
+    return 0;
+}
+```
+We'll provide `num1` as `2147483647` and `num2` as `1` to cause an overflow and consequentially produce a `result` that is negative.
+```bash
+(base) achu@air cryptonite_taskphase_2_achyuth % nc saturn.picoctf.net 52457 
+n1 > n1 + n2 OR n2 > n1 + n2 
+What two positive numbers can make this possible: 
+2147483647 1
+You entered 2147483647 and 1
+You have an integer overflow
+YOUR FLAG IS: picoCTF{Tw0_Sum_Integer_Bu773R_0v3rfl0w_f6ed8057}
+```
+Our flag is `picoCTF{Tw0_Sum_Integer_Bu773R_0v3rfl0w_f6ed8057}`
